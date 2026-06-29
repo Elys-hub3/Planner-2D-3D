@@ -45,9 +45,6 @@ export default function Canvas3D() {
     
     const mouse =
       new THREE.Vector2()
-
-    const draggedMesh =
-      useRef<THREE.Object3D | null>(null)
   
     const transformRef =
       useRef<TransformControls | null>(
@@ -185,7 +182,25 @@ export default function Canvas3D() {
             renderer.domElement
           )
 
-        scene.add(transform)
+        transform.setMode(
+          "translate"
+        )
+        
+        transform.setTranslationSnap(
+          10
+        )
+        
+        transform.setRotationSnap(
+          THREE.MathUtils.degToRad(
+            15
+          )
+        )
+        
+        transform.setScaleSnap(
+          0.1
+        )
+
+        scene.add(transform.getHelper())
 
         transform.addEventListener(
           'dragging-changed',
@@ -213,6 +228,17 @@ export default function Canvas3D() {
                 x: mesh.position.x,
                 y: mesh.position.y,
                 z: mesh.position.z,
+              },
+              rotation: {
+                x: mesh.rotation.x,
+                y: mesh.rotation.y,
+                z: mesh.rotation.z,
+              },
+    
+              scale: {
+                x: mesh.scale.x,
+                y: mesh.scale.y,
+                z: mesh.scale.z,
               },
             })
           }
@@ -302,45 +328,6 @@ export default function Canvas3D() {
                 )
             }
           }
-
-          draggedMesh.current =  intersects[0].object
-          if (
-            !draggedMesh.current
-          ) return
-          const plane =
-            new THREE.Plane(
-              new THREE.Vector3(
-                0,
-                1,
-                0
-              ),
-              0
-            )
-          const point =
-            new THREE.Vector3()
-          
-          raycaster.ray.intersectPlane(
-            plane,
-            point
-          )
-          const mesh =
-            draggedMesh.current
-
-          usePlannerStore
-            .getState()
-            .updateObject(
-              mesh.userData.id,
-              {
-                position: {
-                  x:
-                    mesh.position.x,
-                  y:
-                    mesh.position.y,
-                  z:
-                    mesh.position.z,
-                },
-              }
-            )
         }
         renderer.domElement.addEventListener(
           "click",
@@ -448,10 +435,12 @@ export default function Canvas3D() {
             return;
             }
         
-            mesh.userData.planner =
-              true;
+            mesh.userData = {
+                planner: true,
+                id: object.id,
+              }
 
-            mesh.userData.id =
+            mesh.name =
               object.id
         
             mesh.position.set(
@@ -459,6 +448,24 @@ export default function Canvas3D() {
               object.position.y,
               object.position.z
             );
+
+            if (object.rotation) {
+
+              mesh.rotation.set(
+                object.rotation.x,
+                object.rotation.y,
+                object.rotation.z
+              )
+            }
+
+            if (object.scale) {
+
+              mesh.scale.set(
+                object.scale.x,
+                object.scale.y,
+                object.scale.z
+              )
+            }
         
             scene.add(mesh);
             /*
@@ -507,6 +514,99 @@ export default function Canvas3D() {
         syncObjects();
     
     }, [objects, selectedObjectId,]);
+
+    useEffect(() => {
+
+      const scene =
+        sceneRef.current
+    
+      const transform =
+        transformRef.current
+    
+      if (
+        !scene ||
+        !transform
+      )
+        return
+    
+      if (!selectedObjectId) {
+    
+        transform.detach()
+    
+        return
+      }
+    
+      const mesh =
+        scene.getObjectByName(
+          selectedObjectId
+        )
+    
+      if (mesh) {
+    
+        transform.attach(mesh)
+    
+      } else {
+    
+        transform.detach()
+      }
+    
+    }, [selectedObjectId])
+
+    useEffect(() => {
+
+      const handleKeyDown =
+        (
+          event: KeyboardEvent
+        ) => {
+    
+          const transform =
+            transformRef.current
+    
+          if (!transform)
+            return
+    
+          switch (
+            event.key
+          ) {
+    
+            case "t":
+    
+              transform.setMode(
+                "translate"
+              )
+    
+              break
+    
+            case "r":
+    
+              transform.setMode(
+                "rotate"
+              )
+    
+              break
+    
+            case "s":
+    
+              transform.setMode(
+                "scale"
+              )
+    
+              break
+          }
+        }
+    
+      window.addEventListener(
+        "keydown",
+        handleKeyDown
+      )
+    
+      return () =>
+        window.removeEventListener(
+          "keydown",
+          handleKeyDown
+        )
+    
+    }, [])
 
     return (
         <div

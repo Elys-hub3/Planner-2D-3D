@@ -51,7 +51,17 @@ export interface PlannerObject {
     z: number
   }
 
-  rotation: number
+  rotation: {
+    x:number
+    y:number
+    z:number
+  }
+
+  scale: {
+    x:number
+    y:number
+    z:number
+  }
 
   data: any
 }

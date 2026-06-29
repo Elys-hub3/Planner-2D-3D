@@ -5,7 +5,7 @@ import { useSortable, SortableContext, arrayMove } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useState } from "react";
 
-function LayerItem({ layer, toggle, remove, add, edit, objects, activeLayerId, setActiveLayer }: any) {
+function LayerItem({ layer, toggle, remove, add, edit, objects, activeLayerId, setActiveLayer, removeObject }: any) {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: layer.id });
 
@@ -44,24 +44,67 @@ function LayerItem({ layer, toggle, remove, add, edit, objects, activeLayerId, s
           <div className="text-xs text-gray-500">
             Alt: {layer.altitude}
           </div>
+          <div className="flex gap-2">
+            <button onClick={() => edit(layer.id)}>
+              <Edit size={16} />
+            </button>
+          
+            <button onClick={() => toggle(layer.id)}>
+              {layer.visible ? <Eye size={16} /> : <EyeOff size={16} />}
+            </button>
+
+            <button onClick={() => remove(layer.id)}>
+              <Trash2 size={16} />
+            </button>
+          </div>
           {Array.isArray(objects) &&
             objects
-		  .filter(
-		      (obj) =>
-		        obj.layerId === layer.id
-		    )
-		    .map((obj) => (
-		      <div
-		        key={obj.id}
-		        className="
-		          ml-3
-		          text-xs
-		          text-gray-600
-		        "
-		      >
-		        • {obj.type}
-		      </div>
-		    ))
+              .filter(
+                  (obj) =>
+                    obj.layerId === layer.id
+                )
+              .map((obj) => (
+                <div
+                  key={obj.id}
+                  className="
+                    flex
+                    items-center
+                    justify-between
+                    mt-1
+                    px-2
+                    py-1
+                    rounded
+                    bg-white
+                    border
+                  "
+                >
+                    <span
+                        className="
+                        ml-3
+                        text-xs
+                        text-gray-600
+                        "
+                      >
+                      • {obj.type}
+                    </span>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+
+                        removeObject(
+                          obj.id
+                        );
+                      }}
+                    >
+                      <Trash2
+                        size={12}
+                        className="
+                        text-red-500
+                        "
+                      />
+                    </button>
+                </div>
+              ))
             }
         </div>
 
@@ -73,20 +116,6 @@ function LayerItem({ layer, toggle, remove, add, edit, objects, activeLayerId, s
             ).length
           }
         </span>
-      </div>
-
-      <div className="flex gap-2">
-        <button onClick={() => edit(layer.id)}>
-          <Edit size={16} />
-        </button>
-       
-        <button onClick={() => toggle(layer.id)}>
-          {layer.visible ? <Eye size={16} /> : <EyeOff size={16} />}
-        </button>
-
-        <button onClick={() => remove(layer.id)}>
-          <Trash2 size={16} />
-        </button>
       </div>
     </div>
   );
@@ -102,6 +131,7 @@ export default function LayersSection() {
   const objects = usePlannerStore((state) => state.objects);
   const activeLayerId = usePlannerStore((s) => s.activeLayerId);
   const setActiveLayer = usePlannerStore((s) => s.setActiveLayer);
+  const removeObject = usePlannerStore((s) => s.removeObject);
 
   const filteredLayers = layers.filter((l) =>
        l.name.toLowerCase().includes(search.toLowerCase())
@@ -182,6 +212,7 @@ export default function LayersSection() {
             objects={objects}
             activeLayerId={activeLayerId}
             setActiveLayer={setActiveLayer}
+            removeObject={removeObject}
             onMouseEnter={() => highlightLayer(layer.id)}
             onMouseLeave={() => clearHighlight()}
           />
