@@ -1,0 +1,17 @@
+<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="120" height="80" fill="#f8f9fa"/>
+
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="emptyGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M 8 0 L 0 0 0 8" fill="none" stroke="#e5e7eb" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Grid background -->
+  <rect x="10" y="10" width="100" height="60" fill="url(#emptyGrid)" stroke="#d1d5db" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Center text -->
+  <text x="60" y="42" text-anchor="middle" fill="#9ca3af" font-family="Arial, sans-serif" font-size="10">Plan Vierge</text>
+</svg>

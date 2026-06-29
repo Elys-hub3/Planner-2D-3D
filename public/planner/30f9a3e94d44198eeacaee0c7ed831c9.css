@@ -1,0 +1,62 @@
+/* Mobile-specific styles for idees3D Planner */
+
+/* Ensure touch actions work properly on mobile */
+.mobile-toolbar {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-toolbar button {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.mobile-toolbar button:active {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  transform: scale(0.95);
+}
+
+/* Sidebar drawer animations */
+.sidebar-drawer {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent text selection on canvas during touch interactions */
+svg {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Improve touch target areas */
+@media (max-width: 768px) {
+  /* Hide desktop elements */
+  .toolbar:not(.mobile-toolbar) {
+    display: none !important;
+  }
+  
+  .sidebar:not(.sidebar-drawer) {
+    display: none !important;
+  }
+  
+  .footer-bar {
+    display: none !important;
+  }
+  
+  /* Ensure canvas fills space */
+  .content {
+    width: 100% !important;
+  }
+}
+
+/* Desktop-only: Show original layout */
+@media (min-width: 769px) {
+  .mobile-toolbar {
+    display: none !important;
+  }
+  
+  .sidebar-drawer {
+    display: none !important;
+  }
+}

@@ -1,0 +1,52 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - 3005
+    depends_on:
+      database:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - idees3d-network
+      - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.idees3d.rule=Host(`app.idees3d.fr`) || Host(`3dstudio.idees3d.fr`)"
+      - "traefik.http.routers.idees3d.entrypoints=websecure"
+      - "traefik.http.routers.idees3d.tls.certresolver=letsencrypt"
+      - "traefik.http.services.idees3d.loadbalancer.server.port=3005"
+
+  database:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+    networks:
+      - idees3d-network
+      - dokploy-network
+
+
+networks:
+  idees3d-network:
+    driver: bridge
+  dokploy-network:
+    external: true
+
+volumes:
+  postgres_data:

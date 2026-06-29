@@ -1,0 +1,28 @@
+'use client'
+
+const actions = [
+  'Propriété',
+  'Mur',
+  'Objet',
+  '3D',
+  'Plus',
+]
+
+export default function MobileToolbar() {
+  return (
+    <div className="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-white border-t z-50">
+      <div className="grid grid-cols-5 h-full">
+        {actions.map((action) => (
+          <button
+            key={action}
+            className="flex flex-col items-center justify-center text-xs"
+          >
+            <div className="w-5 h-5 rounded-full bg-zinc-300 mb-1" />
+
+            {action}
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}

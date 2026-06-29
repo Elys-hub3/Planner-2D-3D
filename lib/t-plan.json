@@ -1,0 +1,356 @@
+{
+  "unit": "cm",
+  "layers": {
+    "layer-1": {
+      "id": "layer-1",
+      "altitude": 0,
+      "order": 0,
+      "opacity": 1,
+      "name": "default",
+      "visible": true,
+      "vertices": {
+        "_z3Tpxi8Ibq": {
+          "id": "_z3Tpxi8Ibq",
+          "type": "",
+          "prototype": "vertices",
+          "name": "Vertex",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 788.5355379974462,
+          "y": 1097.5588325016324,
+          "lines": ["RoEx_yqt1G", "DAB-5Viao2L"],
+          "areas": []
+        },
+        "InbPjbUTVTp": {
+          "id": "InbPjbUTVTp",
+          "type": "",
+          "prototype": "vertices",
+          "name": "Vertex",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 1599.2664330819252,
+          "y": 1097.5588325016324,
+          "lines": ["h4zteZPjvmB", "GMCmSNzgor"],
+          "areas": []
+        },
+        "RyNf_IIhaph": {
+          "id": "RyNf_IIhaph",
+          "type": "",
+          "prototype": "vertices",
+          "name": "Vertex",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 788.5355379974462,
+          "y": 1296.6857190136097,
+          "lines": ["DAB-5Viao2L", "9Vyygqe59p"],
+          "areas": []
+        },
+        "Mtxn9_dUm6O": {
+          "id": "Mtxn9_dUm6O",
+          "type": "",
+          "prototype": "vertices",
+          "name": "Vertex",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 1095.759877187354,
+          "y": 596.896946414375,
+          "lines": ["f5C8DF6neE", "hjEMx7bqUfS"],
+          "areas": []
+        },
+        "bnwVWtmyu8K": {
+          "id": "bnwVWtmyu8K",
+          "type": "",
+          "prototype": "vertices",
+          "name": "Vertex",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 905.1670000973187,
+          "y": 1763.2115674130994,
+          "lines": ["BaD1NopzxM0", "BaD1NopzxM0"],
+          "areas": []
+        },
+        "GxXplm1cLrV": {
+          "id": "GxXplm1cLrV",
+          "type": "",
+          "prototype": "vertices",
+          "name": "Vertex",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 1300.5761033139593,
+          "y": 1097.5588325016324,
+          "lines": ["GMCmSNzgor", "zrMXJqo0yW0"],
+          "areas": []
+        },
+        "mtbvQCOQteT": {
+          "id": "mtbvQCOQteT",
+          "type": "",
+          "prototype": "vertices",
+          "name": "Vertex",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 1300.5761033139593,
+          "y": 596.896946414375,
+          "lines": ["zrMXJqo0yW0", "f5C8DF6neE"],
+          "areas": []
+        },
+        "NCtIJDeVklN": {
+          "id": "NCtIJDeVklN",
+          "type": "",
+          "prototype": "vertices",
+          "name": "Vertex",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 1599.2664330819252,
+          "y": 1296.6857190136097,
+          "lines": ["h4zteZPjvmB", "9Vyygqe59p"],
+          "areas": []
+        },
+        "QBGW_2M2Zrm": {
+          "id": "QBGW_2M2Zrm",
+          "type": "",
+          "prototype": "vertices",
+          "name": "Vertex",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 1095.759877187354,
+          "y": 1097.5588325016324,
+          "lines": ["hjEMx7bqUfS", "RoEx_yqt1G"],
+          "areas": []
+        }
+      },
+      "lines": {
+        "RoEx_yqt1G": {
+          "id": "RoEx_yqt1G",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["_z3Tpxi8Ibq", "QBGW_2M2Zrm"],
+          "holes": []
+        },
+        "BaD1NopzxM0": {
+          "id": "BaD1NopzxM0",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["bnwVWtmyu8K", "bnwVWtmyu8K"],
+          "holes": []
+        },
+        "zrMXJqo0yW0": {
+          "id": "zrMXJqo0yW0",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["mtbvQCOQteT", "GxXplm1cLrV"],
+          "holes": []
+        },
+        "DAB-5Viao2L": {
+          "id": "DAB-5Viao2L",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["_z3Tpxi8Ibq", "RyNf_IIhaph"],
+          "holes": []
+        },
+        "hjEMx7bqUfS": {
+          "id": "hjEMx7bqUfS",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["Mtxn9_dUm6O", "QBGW_2M2Zrm"],
+          "holes": []
+        },
+        "9Vyygqe59p": {
+          "id": "9Vyygqe59p",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["RyNf_IIhaph", "NCtIJDeVklN"],
+          "holes": []
+        },
+        "h4zteZPjvmB": {
+          "id": "h4zteZPjvmB",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["InbPjbUTVTp", "NCtIJDeVklN"],
+          "holes": []
+        },
+        "GMCmSNzgor": {
+          "id": "GMCmSNzgor",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["GxXplm1cLrV", "InbPjbUTVTp"],
+          "holes": []
+        },
+        "f5C8DF6neE": {
+          "id": "f5C8DF6neE",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["Mtxn9_dUm6O", "mtbvQCOQteT"],
+          "holes": []
+        }
+      },
+      "holes": {},
+      "areas": {
+        "v7Q-o6bOMR6": {
+          "id": "v7Q-o6bOMR6",
+          "type": "area",
+          "prototype": "areas",
+          "name": "Zone",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "patternColor": "#F5F4F4",
+            "thickness": { "length": 0 },
+            "texture": "none"
+          },
+          "visible": true,
+          "vertices": [
+            "RyNf_IIhaph",
+            "_z3Tpxi8Ibq",
+            "QBGW_2M2Zrm",
+            "Mtxn9_dUm6O",
+            "mtbvQCOQteT",
+            "GxXplm1cLrV",
+            "InbPjbUTVTp",
+            "NCtIJDeVklN"
+          ],
+          "holes": []
+        }
+      },
+      "items": {},
+      "selected": {
+        "vertices": [],
+        "lines": [],
+        "holes": [],
+        "areas": [],
+        "items": []
+      }
+    }
+  },
+  "grids": {
+    "h1": {
+      "id": "h1",
+      "type": "horizontal-streak",
+      "properties": {
+        "step": 20,
+        "colors": ["#808080", "#ddd", "#ddd", "#ddd", "#ddd"]
+      }
+    },
+    "v1": {
+      "id": "v1",
+      "type": "vertical-streak",
+      "properties": {
+        "step": 20,
+        "colors": ["#808080", "#ddd", "#ddd", "#ddd", "#ddd"]
+      }
+    }
+  },
+  "selectedLayer": "layer-1",
+  "groups": {},
+  "width": 3000,
+  "height": 2000,
+  "meta": {},
+  "guides": { "circular": {}, "vertical": {}, "horizontal": {} }
+}

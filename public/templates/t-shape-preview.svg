@@ -1,0 +1,44 @@
+<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="120" height="80" fill="#f8f9fa"/>
+
+  <!-- T-shape room outline -->
+  <!-- Horizontal top bar -->
+  <rect x="10" y="15" width="100" height="20"
+        fill="#ffffff"
+        stroke="#374151"
+        stroke-width="1.5"/>
+
+  <!-- Vertical stem -->
+  <rect x="45" y="35" width="30" height="30"
+        fill="#ffffff"
+        stroke="#374151"
+        stroke-width="1.5"/>
+
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="tGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M 8 0 L 0 0 0 8" fill="none" stroke="#e5e7eb" stroke-width="0.4"/>
+    </pattern>
+  </defs>
+
+  <!-- Apply grid to room interiors -->
+  <rect x="11" y="16" width="98" height="18" fill="url(#tGrid)"/>
+  <rect x="46" y="36" width="28" height="28" fill="url(#tGrid)"/>
+
+  <!-- Wall thickness visualization -->
+  <rect x="10" y="15" width="100" height="2" fill="#6b7280"/>
+  <rect x="10" y="33" width="35" height="2" fill="#6b7280"/>
+  <rect x="75" y="33" width="35" height="2" fill="#6b7280"/>
+  <rect x="45" y="33" width="30" height="2" fill="#6b7280"/>
+  <rect x="45" y="63" width="30" height="2" fill="#6b7280"/>
+
+  <!-- Vertical walls -->
+  <rect x="10" y="15" width="2" height="20" fill="#6b7280"/>
+  <rect x="108" y="15" width="2" height="20" fill="#6b7280"/>
+  <rect x="45" y="35" width="2" height="30" fill="#6b7280"/>
+  <rect x="73" y="35" width="2" height="30" fill="#6b7280"/>
+
+  <!-- Label -->
+  <text x="60" y="75" text-anchor="middle" fill="#6b7280" font-family="Arial, sans-serif" font-size="8">Plan en T</text>
+</svg>

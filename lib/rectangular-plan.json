@@ -1,0 +1,197 @@
+{
+  "unit": "cm",
+  "layers": {
+    "11111111-1111-1111-1111-111111111111": {
+      "id": "11111111-1111-1111-1111-111111111111",
+      "altitude": 0,
+      "order": 0,
+      "opacity": 1,
+      "name": "default",
+      "visible": true,
+      "vertices": {
+        "rect-vertex-1": {
+          "id": "rect-vertex-1",
+          "type": "",
+          "prototype": "vertices",
+          "name": "",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 1000,
+          "y": 767.7182520821407,
+          "lines": ["rect-wall-left", "_UF2bFX-pw"],
+          "areas": ["rect-area-1"]
+        },
+        "rect-vertex-2": {
+          "id": "rect-vertex-2",
+          "type": "",
+          "prototype": "vertices",
+          "name": "",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 1989.6552690174249,
+          "y": 767.7182520821407,
+          "lines": ["d_GQprHdSs", "_UF2bFX-pw"],
+          "areas": ["rect-area-1"]
+        },
+        "rect-vertex-3": {
+          "id": "rect-vertex-3",
+          "type": "",
+          "prototype": "vertices",
+          "name": "",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 1989.6552690174249,
+          "y": 1232.1993232932352,
+          "lines": ["d_GQprHdSs", "EM6hnITJny"],
+          "areas": ["rect-area-1"]
+        },
+        "rect-vertex-4": {
+          "id": "rect-vertex-4",
+          "type": "",
+          "prototype": "vertices",
+          "name": "",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 1000,
+          "y": 1232.1993232932352,
+          "lines": ["rect-wall-left", "EM6hnITJny"],
+          "areas": ["rect-area-1"]
+        }
+      },
+      "lines": {
+        "_UF2bFX-pw": {
+          "id": "_UF2bFX-pw",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["rect-vertex-1", "rect-vertex-2"],
+          "holes": []
+        },
+        "rect-wall-left": {
+          "id": "rect-wall-left",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["rect-vertex-4", "rect-vertex-1"],
+          "holes": []
+        },
+        "d_GQprHdSs": {
+          "id": "d_GQprHdSs",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["rect-vertex-2", "rect-vertex-3"],
+          "holes": []
+        },
+        "EM6hnITJny": {
+          "id": "EM6hnITJny",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["rect-vertex-4", "rect-vertex-3"],
+          "holes": []
+        }
+      },
+      "holes": {},
+      "areas": {
+        "rect-area-1": {
+          "id": "rect-area-1",
+          "type": "area",
+          "prototype": "areas",
+          "name": "Zone",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "patternColor": "#F5F4F4",
+            "thickness": { "length": 0 },
+            "texture": "none"
+          },
+          "visible": true,
+          "vertices": [
+            "rect-vertex-1",
+            "rect-vertex-2",
+            "rect-vertex-3",
+            "rect-vertex-4"
+          ],
+          "holes": []
+        }
+      },
+      "items": {},
+      "selected": {
+        "vertices": [],
+        "lines": [],
+        "holes": [],
+        "areas": [],
+        "items": []
+      }
+    }
+  },
+  "grids": {
+    "h1": {
+      "id": "h1",
+      "type": "horizontal-streak",
+      "properties": {
+        "step": 20,
+        "colors": ["#808080", "#ddd", "#ddd", "#ddd", "#ddd"]
+      }
+    },
+    "v1": {
+      "id": "v1",
+      "type": "vertical-streak",
+      "properties": {
+        "step": 20,
+        "colors": ["#808080", "#ddd", "#ddd", "#ddd", "#ddd"]
+      }
+    }
+  },
+  "selectedLayer": "11111111-1111-1111-1111-111111111111",
+  "groups": {},
+  "width": 3000,
+  "height": 2000,
+  "meta": {},
+  "guides": { "horizontal": {}, "vertical": {}, "circular": {} }
+}

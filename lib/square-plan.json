@@ -1,0 +1,192 @@
+{
+  "unit": "cm",
+  "layers": {
+    "11111111-1111-1111-1111-111111111111": {
+      "id": "11111111-1111-1111-1111-111111111111",
+      "altitude": 0,
+      "order": 0,
+      "opacity": 1,
+      "name": "default",
+      "visible": true,
+      "vertices": {
+        "vertex-1": {
+          "id": "vertex-1",
+          "type": "",
+          "prototype": "vertices",
+          "name": "",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 799.36,
+          "y": 1049.5209226063153,
+          "lines": ["RKJ6ybEZNC", "F14nbPXGJk"],
+          "areas": []
+        },
+        "vertex-2": {
+          "id": "vertex-2",
+          "type": "",
+          "prototype": "vertices",
+          "name": "",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 1299.3530146481069,
+          "y": 1049.5209226063153,
+          "lines": ["RKJ6ybEZNC", "ahVjwJGnxh"],
+          "areas": []
+        },
+        "vertex-3": {
+          "id": "vertex-3",
+          "type": "",
+          "prototype": "vertices",
+          "name": "",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 1299.3565073240534,
+          "y": 1549.52,
+          "lines": ["aHGRykxoTw", "ahVjwJGnxh"],
+          "areas": []
+        },
+        "vertex-4": {
+          "id": "vertex-4",
+          "type": "",
+          "prototype": "vertices",
+          "name": "",
+          "misc": {},
+          "selected": false,
+          "properties": {},
+          "visible": true,
+          "x": 799.3634926759468,
+          "y": 1549.52,
+          "lines": ["aHGRykxoTw", "F14nbPXGJk"],
+          "areas": []
+        }
+      },
+      "lines": {
+        "aHGRykxoTw": {
+          "id": "aHGRykxoTw",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["vertex-4", "vertex-3"],
+          "holes": []
+        },
+        "RKJ6ybEZNC": {
+          "id": "RKJ6ybEZNC",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["vertex-1", "vertex-2"],
+          "holes": []
+        },
+        "ahVjwJGnxh": {
+          "id": "ahVjwJGnxh",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["vertex-2", "vertex-3"],
+          "holes": []
+        },
+        "F14nbPXGJk": {
+          "id": "F14nbPXGJk",
+          "type": "wall",
+          "prototype": "lines",
+          "name": "Mur",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "height": { "length": 300 },
+            "thickness": { "length": 20 },
+            "textureA": "bricks",
+            "textureB": "bricks"
+          },
+          "visible": true,
+          "vertices": ["vertex-1", "vertex-4"],
+          "holes": []
+        }
+      },
+      "holes": {},
+      "areas": {
+        "Fu1PxLq29cO": {
+          "id": "Fu1PxLq29cO",
+          "type": "area",
+          "prototype": "areas",
+          "name": "Zone",
+          "misc": {},
+          "selected": false,
+          "properties": {
+            "patternColor": "#F5F4F4",
+            "thickness": { "length": 0 },
+            "texture": "none"
+          },
+          "visible": true,
+          "vertices": ["vertex-2", "vertex-3", "vertex-4", "vertex-1"],
+          "holes": []
+        }
+      },
+      "items": {},
+      "selected": {
+        "vertices": [],
+        "lines": [],
+        "holes": [],
+        "areas": [],
+        "items": []
+      }
+    }
+  },
+  "grids": {
+    "h1": {
+      "id": "h1",
+      "type": "horizontal-streak",
+      "properties": {
+        "step": 20,
+        "colors": ["#808080", "#ddd", "#ddd", "#ddd", "#ddd"]
+      }
+    },
+    "v1": {
+      "id": "v1",
+      "type": "vertical-streak",
+      "properties": {
+        "step": 20,
+        "colors": ["#808080", "#ddd", "#ddd", "#ddd", "#ddd"]
+      }
+    }
+  },
+  "selectedLayer": "11111111-1111-1111-1111-111111111111",
+  "groups": {},
+  "width": 3000,
+  "height": 2000,
+  "meta": {},
+  "guides": { "horizontal": {}, "vertical": {}, "circular": {} }
+}
