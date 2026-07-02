@@ -1,64 +1,56 @@
 import * as THREE from "three";
 
 
-export const WallFactory = {
+export const AreaFactory = {
+
   create(object: any) {
 
     const texture =
-      object.texture
-        ? new THREE.TextureLoader().load(
-            object.texture
-          )
-        : null;
-
-    if (texture) {
-
-      texture.wrapS =
-        THREE.RepeatWrapping;
-
-      texture.wrapT =
-        THREE.RepeatWrapping;
-
-      texture.repeat.set(
-        2,
-        2
+      new THREE.TextureLoader().load(
+        object.texture
       );
-    }
+
+    texture.wrapS =
+      THREE.RepeatWrapping;
+
+    texture.wrapT =
+      THREE.RepeatWrapping;
+
+    texture.repeat.set(
+      10,
+      10
+    );
+
     const material =
       new THREE.MeshStandardMaterial({
-        map: texture ?? undefined,
+        map: texture,
       });
 
-    const width =
-      object.data?.width ??
-      300
-
     const geometry =
-      new THREE.BoxGeometry(
-        width,
-        250,
-        20
+      new THREE.PlaneGeometry(
+        500,
+        500
       );
 
-    const wall = new THREE.Mesh(
+    const floor =
+      new THREE.Mesh(
         geometry,
         material
       );
 
-    wall.userData = {
-      type: "wall",
-      width: 300,
-      height: 250,
-      thickness: 20
-    };
+    floor.rotation.x =
+      -Math.PI / 2;
 
-    return wall;
+    floor.userData.type =
+      "area";
+
+    return floor;
   },
 
   serialize(mesh: { uuid: any; position: { x: any; y: any; z: any; }; rotation: { x: any; y: any; z: any; }; scale: { x: any; y: any; z: any; }; userData: any; }) {
     return {
       id: mesh.uuid,
-      type: "wall",
+      type: "area",
 
       position: {
         x: mesh.position.x,
@@ -83,15 +75,15 @@ export const WallFactory = {
   },
 
   deserialize(data: { position: { x: number; y: number; z: number; }; }) {
-    const wall =
-      this.create(Object);  
+    const floor =
+      this.create(object);  
 
-    wall.position.set(
+    floor.position.set(
       data.position.x,
       data.position.y,
       data.position.z
     );
 
-    return wall;
+    return floor;
   },
-};
+}

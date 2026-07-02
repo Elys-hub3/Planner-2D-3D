@@ -7,6 +7,12 @@ import DoorObject from './objects/DoorObject'
 import WindowObject from './objects/WindowObject'
 import StairObject from './objects/StairObject'
 import FurnitureObject from './objects/FurnitureObject'
+import WallPocheObject from './objects/WallPocheObject'
+import AreaObject from './objects/AreaObject'
+import ChairObject from './objects/ChairObject'
+import TableObject from './objects/TableObject'
+import RoundWallPocheObject from './objects/RoundWallPocheObject'
+import RoundWallObject from './objects/RoundWallObject'
 
 export default function ObjectRenderer() {
   const objects = usePlannerStore(
@@ -37,9 +43,34 @@ export default function ObjectRenderer() {
           )
         .map((object) => {
           switch (true) {
-            case object.type.startsWith('wall'):
-              return (
-                <WallObject
+            case object.type.startsWith('wall') &&
+                 object.type !== 'wall-poche':
+                return(
+                  <WallObject
+                    key={object.id}
+                    object={object}
+                  />
+                )
+
+            case object.type === 'wall-poche':
+              return(
+                <WallPocheObject
+                  key={object.id}
+                  object={object}
+                />
+              )
+
+            case object.type === 'round-wall':
+              return(
+                <RoundWallObject
+                  key={object.id}
+                  object={object}
+                />
+              )
+
+            case object.type === 'round-wall-poche':
+              return(
+                <RoundWallPocheObject
                   key={object.id}
                   object={object}
                 />
@@ -68,11 +99,26 @@ export default function ObjectRenderer() {
                   object={object}
                 />
               )
+            
+            case object.type.startsWith('area'):
+              return (
+                <AreaObject
+                  key={object.id}
+                  object={object}
+                />
+              )
 
             case object.type === 'chair':
+              return (
+                <ChairObject
+                  key={object.id}
+                  object={object}
+                />
+              )
+
             case object.type === 'table':
               return (
-                <FurnitureObject
+                <TableObject
                   key={object.id}
                   object={object}
                 />

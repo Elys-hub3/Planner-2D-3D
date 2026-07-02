@@ -1,10 +1,6 @@
+import { Stair } from '../features/stairs/stairs.types';
 export const OBJECTS = {
     walls: [
-      {
-        id: "wall-basic",
-        name: "Mur",
-        image: "/planner/catalog/lines/wall/wall.png",
-      },
       {
         id: "wall-brick-1",
         name: "Mur à brics1",
@@ -24,6 +20,21 @@ export const OBJECTS = {
         id: "wall-painted-2",
         name: "Mur peint2",
         image: "/planner/catalog/lines/wall/textures/painted.jpg",
+      },
+      {
+        id: "wall-poche",
+        name: "Mur poché",
+        image: "/planner/catalog/lines/wall/wall.png",
+      },
+      {
+        id: "round-wall",
+        name: "Mur rond",
+        image: "/planner/catalog/lines/wall/wall.png",
+      },
+      {
+        id: "round-wall-poche",
+        name: "Mur rond poché",
+        image: "/planner/catalog/lines/wall/wall.png",
       },
     ],
   
@@ -69,6 +80,14 @@ export const OBJECTS = {
         name: "Tile",
         image: "/planner/catalog/areas/area/textures/tile1.jpg",
       },
+    ],
+
+    stair: [
+      {
+        id: "stair-1",
+        name: "stair",
+        image: "/planner/catalog/areas/area/textures/parquet.jpg",
+      }
     ],
   
     furniture: [

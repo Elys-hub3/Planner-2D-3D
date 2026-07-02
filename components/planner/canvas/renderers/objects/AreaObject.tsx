@@ -1,12 +1,11 @@
 'use client'
 
-import { Arc, Circle } from 'react-konva'
-
+import { usePlannerStore } from '@/store/planner.store'
 import {
-  usePlannerStore
-} from '@/store/planner.store'
+  Rect
+} from 'react-konva'
 
-export default function DoorObject({
+export default function AreaObject({
   object,
 }: any) {
 
@@ -25,28 +24,26 @@ export default function DoorObject({
       (s) => s.selectedObjectId
     )
 
-  const selected =
-    selectedObjectId === object.id
-
   return (
-    <>
-    <Arc
+    <Rect
       x={object.position.x}
       y={object.position.y}
       rotation={
         (object.rotation?.z ?? 0) * 180 / Math.PI
       }
-      innerRadius={0}
-      outerRadius={40}
-      angle={90}
-      fill="#92400e"
-      
-      stroke={
-	      selected
-	        ? "#f97316"
-	        : "#7516f9"
-	}
 
+      width={150}
+      height={150}
+
+      fill="#cd5d5c"
+      stroke={
+        selectedObjectId === object.id
+          ? "#8b3a3a"
+          : "#000"
+        }
+      strokeWidth={1}
+
+      dash={[5,5]}
       draggable
 
       onClick={() =>
@@ -72,15 +69,5 @@ export default function DoorObject({
         )
       }
     />
-    {/* Poignée centrale */}
-    {selected && (
-      <Circle
-        x={0}
-        y={0}
-        radius={3}
-        fill="#f97316"
-      />
-    )}
-    </>
   )
 }

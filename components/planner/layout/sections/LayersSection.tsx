@@ -5,7 +5,7 @@ import { useSortable, SortableContext, arrayMove } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useState } from "react";
 
-function LayerItem({ layer, toggle, remove, add, edit, objects, activeLayerId, setActiveLayer, removeObject }: any) {
+function LayerItem({ layer, toggle, remove, add, edit, objects, activeLayerId, setActiveLayer, removeObject, renameLayer, renameObject }: any) {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: layer.id });
 
@@ -13,6 +13,20 @@ function LayerItem({ layer, toggle, remove, add, edit, objects, activeLayerId, s
     transform: CSS.Transform.toString(transform),
     transition,
   };
+
+  const [editingLayer, setEditingLayer] =
+  useState(false);
+
+  const [layerName, setLayerName] =
+    useState(layer.name);
+
+  const [editingObjectId, setEditingObjectId] =
+    useState<string | null>(
+      null
+    );
+
+  const [objectName, setObjectName] =
+    useState("");
 
   return (
     <div
@@ -40,7 +54,62 @@ function LayerItem({ layer, toggle, remove, add, edit, objects, activeLayerId, s
         </div>
 
         <div>
-          <div className="text-sm font-medium">{layer.name}</div>
+        {editingLayer ? (
+            <input
+              value={layerName}
+              autoFocus
+              onChange={(e) =>
+                setLayerName(
+                  e.target.value
+                )
+              }
+              onBlur={() => {
+                renameLayer(
+                  layer.id,
+                  layerName
+                );
+
+                setEditingLayer(
+                  false
+                );
+              }}
+              onKeyDown={(e) => {
+                if (
+                  e.key === "Enter"
+                ) {
+                  renameLayer(
+                    layer.id,
+                    layerName
+                  );
+
+                  setEditingLayer(
+                    false
+                  );
+                }
+              }}
+              className="
+                border
+                rounded
+                px-1
+                text-sm
+              "
+            />
+          ) : (
+            <div
+              className="
+                text-sm
+                font-medium
+                cursor-pointer
+              "
+              onDoubleClick={() =>
+                setEditingLayer(
+                  true
+                )
+              }
+            >
+              {layer.name}
+            </div>
+          )}
           <div className="text-xs text-gray-500">
             Alt: {layer.altitude}
           </div>
@@ -78,15 +147,70 @@ function LayerItem({ layer, toggle, remove, add, edit, objects, activeLayerId, s
                     border
                   "
                 >
-                    <span
-                        className="
-                        ml-3
-                        text-xs
-                        text-gray-600
-                        "
-                      >
-                      • {obj.type}
-                    </span>
+                   {editingObjectId ===
+                      obj.id ? (
+                        <input
+                          autoFocus
+                          value={objectName}
+                          onChange={(e) =>
+                            setObjectName(
+                              e.target.value
+                            )
+                          }
+                          onBlur={() => {
+                            renameObject(
+                              obj.id,
+                              objectName
+                            );
+
+                            setEditingObjectId(
+                              null
+                            );
+                          }}
+                          onKeyDown={(e) => {
+                            if (
+                              e.key === "Enter"
+                            ) {
+                              renameObject(
+                                obj.id,
+                                objectName
+                              );
+
+                              setEditingObjectId(
+                                null
+                              );
+                            }
+                          }}
+                          className="
+                            text-xs
+                            border
+                            rounded
+                            px-1
+                          "
+                        />
+                      ) : (
+                        <span
+                          className="
+                            ml-3
+                            text-xs
+                            text-gray-600
+                            cursor-pointer
+                          "
+                          onDoubleClick={() => {
+                            setEditingObjectId(
+                              obj.id
+                            );
+
+                            setObjectName(
+                              obj.name ??
+                              obj.type
+                            );
+                          }}
+                        >
+                            {obj.name ??
+                            obj.type}
+                        </span>
+                      )}
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -132,6 +256,8 @@ export default function LayersSection() {
   const activeLayerId = usePlannerStore((s) => s.activeLayerId);
   const setActiveLayer = usePlannerStore((s) => s.setActiveLayer);
   const removeObject = usePlannerStore((s) => s.removeObject);
+  const renameLayer = usePlannerState((s) => s.renameLayer);
+  const renameObject = usePlannerStore((s) => s.renameObject);
 
   const filteredLayers = layers.filter((l) =>
        l.name.toLowerCase().includes(search.toLowerCase())
@@ -213,6 +339,8 @@ export default function LayersSection() {
             activeLayerId={activeLayerId}
             setActiveLayer={setActiveLayer}
             removeObject={removeObject}
+            renameLayer={renameLayer}
+            renameObject={renameObject}
             onMouseEnter={() => highlightLayer(layer.id)}
             onMouseLeave={() => clearHighlight()}
           />

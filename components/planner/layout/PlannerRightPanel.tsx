@@ -14,6 +14,7 @@ import {
 import GuidesSection from "./sections/GuidesSection";
 import LayersSection from "./sections/LayersSection";
 import GroupsSection from "./sections/GroupsSection";
+import PropertyPanel from '../panels/PropertyPanel';
 
 export default function PlannerRightPanel() {
   const {
@@ -41,6 +42,7 @@ export default function PlannerRightPanel() {
 	     <GuidesSection />
              <LayersSection />
              <GroupsSection />
+             <PropertyPanel />
 	  </div>
        </div>
 
@@ -121,6 +123,7 @@ export default function PlannerRightPanel() {
                 <GuidesSection />
                 <LayersSection />
                 <GroupsSection />
+                <PropertyPanel />
               </div>
             </div>
           </div>

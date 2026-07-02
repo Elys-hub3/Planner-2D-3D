@@ -16,6 +16,7 @@ export function WallMesh(
     new THREE.MeshStandardMaterial({
       color: "#d8d8d8",
     });
+  
 
   return new THREE.Mesh(
     geometry,

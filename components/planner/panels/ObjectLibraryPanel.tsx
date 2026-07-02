@@ -69,6 +69,8 @@ export default function ObjectLibraryPanel({
 
                         name: item.name,
 
+                        texture: item.image,
+
                         layerId: activeLayerId ?? "default",
 
                         visible:true,

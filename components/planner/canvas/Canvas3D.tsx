@@ -223,24 +223,30 @@ export default function Canvas3D() {
 
             if (!id) return
 
-            updateObject(id, {
-              position: {
-                x: mesh.position.x,
-                y: mesh.position.y,
-                z: mesh.position.z,
-              },
-              rotation: {
-                x: mesh.rotation.x,
-                y: mesh.rotation.y,
-                z: mesh.rotation.z,
-              },
-    
-              scale: {
-                x: mesh.scale.x,
-                y: mesh.scale.y,
-                z: mesh.scale.z,
-              },
-            })
+            usePlannerStore
+              .getState()
+              .updateObject(
+                id,
+                {
+                  position: {
+                    x: mesh.position.x,
+                    y: mesh.position.y,
+                    z: mesh.position.z,
+                  },
+        
+                  rotation: {
+                    x: mesh.rotation.x,
+                    y: mesh.rotation.y,
+                    z: mesh.rotation.z,
+                  },
+        
+                  scale: {
+                    x: mesh.scale.x,
+                    y: mesh.scale.y,
+                    z: mesh.scale.z,
+                  },
+                }
+              )
           }
         )
 
@@ -420,12 +426,13 @@ export default function Canvas3D() {
         /*
         * Recreate objects
         */
-        objects.forEach((object) => {
+        objects.forEach(async (object) => {
         
             const mesh =
-            ObjectFactory.create(
-                object.type
-            );
+              ObjectFactory.create(
+                object.type,
+                object
+              );
         
             if (!mesh) {
             console.warn(

@@ -17,6 +17,10 @@ type PlannerState = {
   addGuide: (g: Guide) => void;
   addLayer: (l: Layer) => void;
   addGroup: (g: Group) => void;
+  renameLayer: (
+    id: string,
+    name: string
+  ) => void;
 
   toggleLayer: (id: string) => void;
   deleteLayer: (id: string) => void;
@@ -24,7 +28,7 @@ type PlannerState = {
 
   toggleGroup: (id: string) => void;
   deleteGroup: (id: string) => void;
-  editGroup: (id: string, updates: Partial<Layer>) => void;
+  editGroup: (id: string, updates: Partial<Group>) => void;
   toggleGroupVisibility: (id: string) => void;
 };
 
@@ -38,6 +42,8 @@ export interface PlannerObject {
   type: string
 
   name: string
+
+  texture?: string 
 
   visible: boolean
 
@@ -114,6 +120,11 @@ interface PlannerStore {
 
   removeObject: (
     id: string
+  ) => void
+  
+  renameObject: (
+    id: string,
+    name: string
   ) => void
 
   loadObjects: (
@@ -240,6 +251,22 @@ export const usePlannerStore =
               obj.id !== id
           ),
       })),
+
+    renameObject: (
+        id,
+        name
+      ) =>
+        set((state) => ({
+          objects: state.objects.map(
+            (obj) =>
+              obj.id === id
+                ? {
+                    ...obj,
+                    name,
+                  }
+                : obj
+          ),
+        })),
 
     loadObjects: (objects) =>
       set({
@@ -393,6 +420,22 @@ export const usePlannerState = create<PlannerState>((set) => ({
 
   addGroup: (g) =>
     set((state) => ({ groups: [...state.groups, g] })),
+
+  renameLayer: (
+    id,
+    name
+  ) =>
+    set((state) => ({
+      layers: state.layers.map(
+        (layer) =>
+          layer.id === id
+            ? {
+                ...layer,
+                name,
+              }
+            : layer
+      ),
+    })),
 
   toggleLayer: (id) =>
     set((state) => ({

@@ -39,9 +39,9 @@ export default function GroupsSection() {
             </div>
 
             <div className="flex gap-2">
-              <button onClick={() => edit(g.id)}>
-	        <Edit size={16} />
-	      </button>
+              {/*<button onClick={() => edit(g.id)}>
+                <Edit size={16} />
+        </button>*/}
               <button onClick={() => toggle(g.id)}>
                 {g.visible ? <Eye size={16} /> : <EyeOff size={16} />}
               </button>
