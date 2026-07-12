@@ -426,7 +426,7 @@ export default function Canvas3D() {
         /*
         * Recreate objects
         */
-        objects.forEach(async (object) => {
+        (objects ?? []).forEach(async (object) => {
         
             const mesh =
               ObjectFactory.create(

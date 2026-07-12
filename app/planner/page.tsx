@@ -451,7 +451,9 @@ function PlannerContent() {
     setSelectedTemplate(template);
     setShowTemplateSelector(false);
     
-    loadTemplate(template.planData);
+    if (Array.isArray(template.planData)) {
+      loadTemplate(template.planData);
+    }
 
     // Send template data to iframe
     const iframe = document.querySelector('iframe');
