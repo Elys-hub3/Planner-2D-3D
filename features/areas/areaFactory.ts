@@ -76,7 +76,7 @@ export const AreaFactory = {
 
   deserialize(data: { position: { x: number; y: number; z: number; }; }) {
     const floor =
-      this.create(object);  
+      this.create(Object);  
 
     floor.position.set(
       data.position.x,
